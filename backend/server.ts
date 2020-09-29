@@ -1,12 +1,11 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import { getAllStories, createTestStory } from "./controllers/storyController.ts";
+import { getAllStories } from "./controllers/storyController.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 const router = new Router();
 
 router
-    .get('/', getAllStories)
-    .get('/teste', createTestStory);
+    .get('/', getAllStories);
 
 const app = new Application();
 app.use(
