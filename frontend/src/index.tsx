@@ -2,26 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import Home from './routes/Home/home.component';
 import { QueryCache, ReactQueryCacheProvider } from 'react-query';
+import 'fontsource-roboto';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Menu from './components/menu';
+import Routes from './routes/routes';
 
 const queryCache = new QueryCache();
+
+const THEME = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
     <ReactQueryCacheProvider queryCache={queryCache}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <MuiThemeProvider theme={THEME}>
+        <Menu />
+
+        <Routes />
+      </MuiThemeProvider>
     </ReactQueryCacheProvider>
   </React.StrictMode>,
   document.getElementById('root')
