@@ -4,11 +4,11 @@ import 'react-h5-audio-player/lib/styles.css';
 import AudioPlayerContext from '../context/audio-player-context';
 
 const AudioPlayer = () => {
-    const { audioSrc, setAudioSrc } = useContext(AudioPlayerContext);
+    const { audioSrc } = useContext(AudioPlayerContext);
 
     return (
         <>
-            {audioSrc != null && audioSrc != '' && (
+            {audioSrc != null && audioSrc !== '' && (
                 <div style={{position: 'fixed', bottom: 0, left: 0, width: '100%'}}>
                     <Player
                         autoPlay

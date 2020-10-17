@@ -37,10 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const classes = useStyles();
-    const theme = useTheme();
     const [previewStory, setPreviewStory] = useState<Story | null>(null);
 
-    const { audioSrc, setAudioSrc } = useContext(AudioPlayerContext);
+    const { setAudioSrc } = useContext(AudioPlayerContext);
 
     const { isLoading, error, data: stories }: Query = useQuery('repoData', () =>
         fetch('http://localhost:8080/story').then(res =>
@@ -100,8 +99,8 @@ const Home = () => {
                     </CardContent>
 
                     <CardActions>
-                        <IconButton aria-label="play/pause">
-                            <PlayArrowIcon onClick={() => playStory()} style={{ color: '#c48c33' }} />
+                        <IconButton aria-label="play/pause" onClick={() => playStory()}>
+                            <PlayArrowIcon style={{ color: '#c48c33' }} />
                         </IconButton>
 
                         <IconButton aria-label="description" onClick={() => selectPreviewStory(story)}>
