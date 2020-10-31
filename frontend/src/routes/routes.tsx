@@ -6,7 +6,8 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Home from './Home/home.component';
+import Home from './home/home.component';
+import Detail from './detail/detail.component';
 
 const Routes = () => {
     const [audioSrc, setAudioSrc] = useState('');
@@ -16,9 +17,8 @@ const Routes = () => {
           <main>
             <Router>
               <Switch>
-                <Route exact path="/">
-                  <Home />
-                </Route>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/story/:storyId" component={Detail} />
               </Switch>
             </Router>
           </main>

@@ -22,7 +22,7 @@ const Menu = () => {
         <div className={classes.root}>
             <AppBar position="static" className={classes.header}>
                 <Toolbar>
-                    <img src="/logo.png" className={classes.image} />
+                    <img src="/logo.png" alt="Logo" className={classes.image} />
                 </Toolbar>
             </AppBar>
         </div>

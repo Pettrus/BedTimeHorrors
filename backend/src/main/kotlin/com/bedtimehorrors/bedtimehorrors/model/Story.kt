@@ -1,15 +1,43 @@
 package com.bedtimehorrors.bedtimehorrors.model
 
+import com.bedtimehorrors.bedtimehorrors.enum.StoryType
+import org.hibernate.annotations.GenericGenerator
+import org.jetbrains.annotations.NotNull
+import java.util.*
 import javax.persistence.*
 
 @Entity
 @Table(name = "story")
 data class Story(
-        @Id @GeneratedValue val id: Long? = null,
-        @Column val title: String,
-        @Column(columnDefinition = "TEXT") val narrative: String,
-        @Column val audio: String,
-        @Column(name = "audio_length") val audioLength: String,
-        @Column(name = "original_story_link") val originalStoryLink: String,
-        @Column(name = "created_date") val createdDate: Long? = null
+        @Id
+        @GeneratedValue
+        @GenericGenerator(name="system-uuid", strategy = "uuid")
+        val id: UUID? = null,
+
+        @Column
+        @NotNull
+        val title: String,
+
+        @Column(columnDefinition = "TEXT")
+        @NotNull
+        val narrative: String,
+
+        @Column
+        @NotNull
+        val audio: String,
+
+        @Column
+        @NotNull
+        val storyType: StoryType,
+
+        @Column
+        @NotNull
+        val imageLink: String,
+
+        @Column(length = 10)
+        @NotNull
+        val audioLength: String,
+
+        @Column
+        val originalStoryLink: String
 )
