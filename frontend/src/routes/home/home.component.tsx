@@ -5,25 +5,7 @@ import {
 } from '@material-ui/core';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-
-type StoryType = "REAL" | "PARANORMAL";
-
-interface Story {
-    id: string;
-    title: string;
-    narrative: string;
-    type: StoryType;
-    imageLink: string;
-    audio: string;
-    audioLength: string;
-    originalStoryLink: string;
-}
-
-interface Query {
-    isLoading: boolean;
-    error: any;
-    data: Array<Story>;
-}
+import { Story, Query } from '../../props/story.props';
 
 const useStyles = makeStyles((theme) => ({
     root: {

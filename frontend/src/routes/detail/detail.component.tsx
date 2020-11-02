@@ -7,25 +7,7 @@ import { useQuery } from 'react-query';
 import { useParams, Link } from 'react-router-dom';
 import AudioPlayerContext from '../../context/audio-player-context';
 import { Face, BlurOn, PlayArrow, Reddit, ArrowBackIos } from '@material-ui/icons';
-
-type StoryType = "REAL" | "PARANORMAL";
-
-interface Story {
-    id: string;
-    title: string;
-    narrative: string;
-    storyType: StoryType;
-    imageLink: string;
-    audio: string;
-    audioLength: string;
-    originalStoryLink: string;
-}
-
-interface Query {
-    isLoading: boolean;
-    error: any;
-    data: Story;
-}
+import { QueryDetail } from '../../props/story.props';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -58,7 +40,7 @@ const Detail = () => {
     const { storyId }: any = useParams();
     const { setAudioSrc } = useContext(AudioPlayerContext);
 
-    const { isLoading, error, data: story }: Query = useQuery('story', () =>
+    const { isLoading, error, data: story }: QueryDetail = useQuery('story', () =>
         fetch(`${process.env.REACT_APP_API_URL}/story/${storyId}`).then(res =>
             res.json()
         )
