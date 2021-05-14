@@ -1,0 +1,1 @@
+{"rustc_fingerprint":9659501407622218342,"outputs":{"17598535894874457435":{"success":true,"status":"","code":0,"stdout":"rustc 1.54.0-nightly (6d395a1c2 2021-05-13)\nbinary: rustc\ncommit-hash: 6d395a1c2946c79966490f5b1e6e619d3a713e6b\ncommit-date: 2021-05-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.54.0-nightly\nLLVM version: 12.0.1\n","stderr":""}},"successes":{}}
