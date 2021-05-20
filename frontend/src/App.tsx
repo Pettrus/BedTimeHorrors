@@ -5,23 +5,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Menu from './components/Menu';
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import { ChakraProvider } from "@chakra-ui/react"
 
 function App() {
   return (
-      <ChakraProvider>
-        <Router>
-                <Menu />
+    <Router>
+            <Navbar />
 
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                </Switch>
-        </Router>
-      </ChakraProvider>
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+            </Switch>
+    </Router>
   );
 }
 
